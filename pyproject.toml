@@ -1,0 +1,26 @@
+[project]
+name = "pdf-extractor"
+version = "0.1.0"
+description = "Dynamic PDF-to-CSV table extractor with validation and routing"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "pdfplumber>=0.11.0",
+  "pypdf>=4.0.0",
+  "python-dateutil>=2.8.2"
+]
+
+[project.optional-dependencies]
+ocr = [
+  "pytesseract>=0.3.10"
+]
+
+[project.scripts]
+pdf-extract = "pdf_extractor.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
